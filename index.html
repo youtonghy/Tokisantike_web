@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>公司首页</title>
+    <title>Tokisantike Network</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
@@ -14,8 +14,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: url('https://images.unsplash.com/photo-1536008758366-72fbc5b16911?q=80&w=3774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
-            background-size: cover;
+            background-color: #f5f5e8; /* 米黄色 */
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -39,7 +38,7 @@
 
         .center-logo {
             width: 300px;
-            margin-bottom: 3rem;
+            margin-bottom: 5px; 
         }
 
         .center-logo img {
@@ -114,6 +113,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-decoration: none; /* 为 <a> 标签移除下划线 */
         }
 
         .nav-button:hover {
@@ -160,26 +160,26 @@
             <img src="https://img.youtonghy.com/image/2025/05/09/szbcm2.webp" alt="LESS CREATE MORE">
         </div>
         <div class="sub-text">
-            Streaming transmission Software Development Autonomous Network
+            
         </div>
     </div>
     
     <div class="nav-buttons">
-        <button class="nav-button" title="HOME">
+        <a href="/" class="nav-button" title="HOME">
             <i class="fas fa-home"></i>
-        </button>
-        <button class="nav-button" title="ABOUT">
+        </a>
+        <a href="/about" class="nav-button" title="ABOUT">
             <i class="fas fa-info-circle"></i>
-        </button>
-        <button class="nav-button" title="产品服务">
+        </a>
+        <a href="/pd" class="nav-button" title="Product">
             <i class="fas fa-briefcase"></i>
-        </button>
-        <button class="nav-button" title="联系我们">
+        </a>
+        <a href="/ct" class="nav-button" title="Contact">
             <i class="fas fa-envelope"></i>
-        </button>
-        <button class="nav-button" title="BBS">
+        </a>
+        <a href="https://bbs.tokisantike.net/" target="_blank" class="nav-button" title="BBS">
             <i class="fas fa-newspaper"></i>
-        </button>
+        </a>
     </div>
 
     <div class="logo-container">
