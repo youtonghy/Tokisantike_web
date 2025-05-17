@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,26 +14,21 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f5f5e8; /* 米黄色 */
+            background-color: #f5f5e8; /* Beige */
             min-height: 100vh;
             display: flex;
             justify-content: center;
+            align-items: center; /* Vertically center .main-content when its content is less than one screen */
         }
 
         .main-content {
             flex: 1;
             padding: 2rem;
+            padding-top: 120px; /* Leave space for fixed navigation bar */
             max-width: 1400px;
-            margin-top: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            width: 100%;
+            margin: 0 auto; /* Horizontally center */
+            /* Removed position: absolute, top, left, transform, display: flex related properties */
         }
 
         .center-logo {
@@ -113,7 +108,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-decoration: none; /* 为 <a> 标签移除下划线 */
+            text-decoration: none; /* Remove underline for <a> tags */
         }
 
         .nav-button:hover {
@@ -149,11 +144,256 @@
             height: 100%;
             object-fit: cover;
         }
+
+        /* Bento Grid Styles */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Default 4-column layout */
+            grid-auto-rows: minmax(180px, auto); /* Row min-height, auto-adjust */
+            gap: 20px;
+            width: 100%;
+        }
+
+        .bento-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Content vertically distributed */
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bento-card.card-welcome { 
+            grid-column: span 2; 
+            grid-row: span 2; 
+            background-color: #f8f9fa; /* Slightly different background to highlight */
+        }
+        .bento-card.card-about      { grid-column: span 1; grid-row: span 1; }
+        .bento-card.card-feature1   { grid-column: span 1; grid-row: span 1; }
+        .bento-card.card-milestones { grid-column: span 1; grid-row: span 1; }
+        .bento-card.card-feature2   { grid-column: span 1; grid-row: span 1; }
+        .bento-card.card-team       { grid-column: span 2; grid-row: span 1; }
+        .bento-card.card-cta        { grid-column: span 2; grid-row: span 1; }
+
+
+        /* Typography */
+        .gradient-text {
+            background: linear-gradient(90deg, #C084FC, #7E22CE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 0.5em;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.75em;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-title i {
+            margin-right: 10px;
+            color: #7E22CE; /* Icons use theme accent color */
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            flex-grow: 1; /* Make description area fill remaining space */
+            margin-bottom: 1em; /* Spacing with elements below (like tags or buttons) */
+        }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            background-color: #f0e6ff; /* Light purple background */
+            color: #7E22CE; /* Dark purple text */
+            padding: 5px 12px;
+            border-radius: 15px; /* Capsule shape */
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 8px;
+            margin-top: 10px;
+        }
+
+        /* Milestones List */
+        .milestones-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .milestones-list li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #333;
+        }
+        .milestones-list li .gradient-text {
+            font-size: 1.1rem; /* Year/key points in milestones use gradient text */
+            margin-bottom: 0;
+            display: inline;
+        }
+
+        /* Team Avatars Preview */
+        .team-avatars-preview {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .team-avatars-preview img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: -10px; /* Avatar overlap effect */
+            border: 2px solid white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .team-avatars-preview span {
+            margin-left: 20px; 
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #C084FC, #7E22CE);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            margin-top: auto; /* Push button to the bottom */
+            align-self: flex-start; /* Left align */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(126, 34, 206, 0.3);
+        }
+
+        /* Responsive adjustments for Bento Grid */
+        @media (max-width: 1200px) { /* Tablet landscape / smaller desktop */
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2-column layout */
+            }
+            .bento-card.card-welcome    { grid-column: span 2; grid-row: span 1; }
+            .bento-card.card-about      { grid-column: span 1; grid-row: span 1; }
+            .bento-card.card-feature1   { grid-column: span 1; grid-row: span 1; }
+            .bento-card.card-milestones { grid-column: span 1; grid-row: span 1; }
+            .bento-card.card-feature2   { grid-column: span 1; grid-row: span 1; }
+            .bento-card.card-team       { grid-column: span 2; grid-row: span 1; }
+            .bento-card.card-cta        { grid-column: span 2; grid-row: span 1; }
+        }
+
+        @media (max-width: 768px) { /* Tablet portrait and mobile */
+            .bento-grid {
+                grid-template-columns: 1fr; /* 1-column layout */
+            }
+            /* In single-column layout, all cards default to 1 column, auto-arranging rows */
+            .bento-card.card-welcome, 
+            .bento-card.card-about, 
+            .bento-card.card-feature1, 
+            .bento-card.card-milestones, 
+            .bento-card.card-feature2, 
+            .bento-card.card-team, 
+            .bento-card.card-cta {
+                grid-column: span 1;
+                grid-row: auto; 
+            }
+            .gradient-text { font-size: 2rem; }
+            .card-title { font-size: 1.3rem; }
+            .main-content { padding-top: 90px; } /* Navigation bar might take less space on mobile */
+        }
     </style>
 </head>
 <body>
     <div class="main-content">
-        <!-- 中心内容区域，等待填充 -->
+        <div class="bento-grid">
+            <!-- Card 1: Welcome/Main Announcement (spans 2x2) -->
+            <div class="bento-card card-welcome">
+                <h2 class="gradient-text">Tokisantike Network</h2>
+                <p class="card-description">We are dedicated to co-creating the future. Explore our latest breakthroughs and join our journey.</p>
+                <div>
+                    <span class="tag">Vision</span>
+                    <span class="tag">Innovation</span>
+                </div>
+            </div>
+
+            <!-- Card 2: About Us -->
+            <div class="bento-card card-about">
+                <h3 class="card-title"><i class="fas fa-users"></i> About Us</h3>
+                <p class="card-description">A passionate team dedicated to providing cutting-edge solutions and excellent service.</p>
+                <div>
+                    <span class="tag">Team</span>
+                    <span class="tag">Professional</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Key Feature/Product -->
+            <div class="bento-card card-feature1">
+                <h3 class="card-title"><i class="fas fa-star"></i> Core Services</h3>
+                <p class="card-description">Highlighting our core product features or unique services.</p>
+                <div>
+                    <span class="tag">Product</span>
+                    <span class="tag">Service</span>
+                </div>
+            </div>
+
+            <!-- Card 4: Milestones -->
+            <div class="bento-card card-milestones">
+                <h3 class="card-title"><i class="fas fa-flag-checkered"></i> Milestones</h3>
+                <ul class="milestones-list">
+                    <li><span class="gradient-text">2023</span> - Company Established</li>
+                    <li><span class="gradient-text">2024</span> - First Product Launch</li>
+                    <li><span class="gradient-text">Q3 '24</span> - New Milestone</li>
+                </ul>
+            </div>
+
+            <!-- Card 5: Technology/Another Feature -->
+            <div class="bento-card card-feature2">
+                <h3 class="card-title"><i class="fas fa-cogs"></i> Technology Stack</h3>
+                <p class="card-description">Discover the core technology stack that drives our innovation.</p>
+                <div>
+                    <span class="tag">Technology</span>
+                    <span class="tag">R&D</span>
+                </div>
+            </div>
+            
+            <!-- Card 6: Core Team (spans 2 columns) -->
+            <div class="bento-card card-team">
+                <h3 class="card-title"><i class="fas fa-user-friends"></i> Core Team</h3>
+                <p class="card-description">Meet the elite minds behind Tokisantike. We bring together top industry talent to drive innovation.</p>
+                <div class="team-avatars-preview">
+                     <img src="https://via.placeholder.com/50/C084FC/FFFFFF?Text=T1" alt="Team Member 1" title="John Doe (CEO)">
+                     <img src="https://via.placeholder.com/50/A065FC/FFFFFF?Text=T2" alt="Team Member 2" title="Jane Smith (CTO)">
+                     <img src="https://via.placeholder.com/50/8A42EE/FFFFFF?Text=T3" alt="Team Member 3" title="Alex Wang (Lead Designer)">
+                     <img src="https://via.placeholder.com/50/7E22CE/FFFFFF?Text=T4" alt="Team Member 4" title="Sarah Liu (Marketing Director)">
+                     <span>and other core members</span>
+                </div>
+            </div>
+
+            <!-- Card 7: Call to Action (spans 2 columns) -->
+            <div class="bento-card card-cta">
+                <h3 class="card-title"><i class="fas fa-bullhorn"></i> Join Us</h3>
+                <p class="card-description">Ready to explore collaboration opportunities or learn more? Feel free to contact us!</p>
+                <a href="/ct" class="cta-button">Contact Us</a>
+            </div>
+        </div>
     </div>
     
     <div class="nav-buttons">
@@ -175,7 +415,7 @@
     </div>
 
     <div class="logo-container">
-        <img src="https://tokisantike.net/wp-content/uploads/2024/07/cropped-%E5%9C%86%E5%85%A8%E7%A8%8B.png" alt="公司Logo">
+        <img src="https://tokisantike.net/wp-content/uploads/2024/07/cropped-%E5%9C%86%E5%85%A8%E7%A8%8B.png" alt="Company Logo">
     </div>
 
     <script>
